@@ -1,7 +1,6 @@
 services:
   n8n:
     image: n8nio/n8n
-    restart: always
     ports:
       - 5678:5678
     env_file:
@@ -24,18 +23,5 @@ services:
     ports:
       - "3306:3306"
 
-  mariadb:
-    image: mariadb:latest
-    container_name: mariadb
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: n8n
-    ports:
-      - "3306:3306"
-    volumes:
-      - mariadb_data:/var/lib/mysql
-
-
 volumes:
   db_data:
-  mariadb_data:
